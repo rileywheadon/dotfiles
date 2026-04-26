@@ -1,0 +1,38 @@
+add_newline = true
+
+# Use custom format
+format = '''
+$battery${custom.k8s}$directory${custom.jj}$golang
+$character
+'''
+
+# Battery display indicators
+[[battery.display]]
+threshold = 10
+style = 'bold red'
+
+[[battery.display]]
+threshold = 30
+style = 'bold yellow'
+
+# KUBECONFIG display
+[custom.k8s]
+command = 'echo $KUBECONFIG | sed "s|.*/||"'
+when = 'printenv KUBECONFIG'                 
+format = '[\[󱃾 $output\]]($style) '          
+style = 'white bold'
+
+# Use nerd font icon for Golang
+[golang]
+symbol = ' '
+
+# Display jj bookmark if one exists
+[custom.jj]
+command = 'jj log --revisions @ --limit 1 --ignore-working-copy --no-graph --template bookmarks'
+when = 'jj bookmark list -r @ | grep -q .'
+format = "on [$output](bold purple) "
+
+# Always use bold cyan prompt character
+[character]
+success_symbol = '[❯](bold cyan)'
+error_symbol = '[❯](bold cyan)'

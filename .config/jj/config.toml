@@ -1,0 +1,11 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Riley Wheadon"
+email = "riley.wheadon@sap.com"
+
+[ui]
+default-command = "log"
+
+[template-aliases]
+'format_short_change_id(id)' = 'id.shortest()'
