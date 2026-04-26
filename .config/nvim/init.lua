@@ -9,7 +9,13 @@ require("core.keymaps")
 
 -- enable LSPs (configured in the lsps/ directory)
 vim.lsp.enable({
-	"gopls"
+	"gopls",
+	"marksman"
 })
 
-
+-- load snippets
+if not vim.g.vscode then
+	for _, path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/*.lua", true)) do
+		loadfile(path)()
+	end
+end

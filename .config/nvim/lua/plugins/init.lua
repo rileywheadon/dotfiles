@@ -86,5 +86,40 @@ return {
 				ensure_installed = { "go", "groovy", "lua", "markdown", "python" }
 			})
 		end
+	},
+
+	-- LuaSnip for snippets
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*", 
+	},
+
+	-- blink.cmp for completions
+	{
+		'saghen/blink.cmp',
+		dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+
+		-- use stable 1.* version
+		version = '1.*',  
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+
+			-- uses <Tab> and <S-Tab> to accept
+			keymap = { preset = 'super-tab' },
+
+			-- use monospace version of nerd font instead of regular
+			appearance = { nerd_font_variant = 'mono' },
+
+			-- use LuaSnip for snippets
+			snippets = { preset = 'luasnip' },
+
+			-- set list of enabled providers
+			sources = { default = { 'lsp', 'snippets' } },
+
+			-- use lua fuzzy finder as the rust one is not installed
+			fuzzy = { implementation = "lua" }
+		}
 	}
 }
