@@ -116,10 +116,13 @@ return {
 			snippets = { preset = 'luasnip' },
 
 			-- set list of enabled providers
-			sources = { default = { 'lsp', 'snippets' } },
+			sources = { 
+				default = { 'lsp', 'snippets' },
+				min_keyword_length = 2
+			},
 
 			-- use lua fuzzy finder as the rust one is not installed
 			fuzzy = { implementation = "lua" }
-		}
+		},
 	}
 }
