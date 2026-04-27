@@ -3,7 +3,7 @@ command_timeout=3600000
 
 # Use custom format
 format = '''
-$battery${custom.k8s}$directory${custom.jj}$golang
+$battery${custom.k8s}$nix_shell$directory${custom.jj}$golang
 $character
 '''
 
@@ -22,6 +22,10 @@ command = 'echo $KUBECONFIG | sed "s|.*/||"'
 when = 'printenv KUBECONFIG'                 
 format = '[\[󱃾 $output\]]($style) '          
 style = 'white bold'
+
+# Change nix symbol due to UTF-8 encoding bug in WSL
+[nix_shell]
+symbol = '󱄅 '
 
 # Use nerd font icon for Golang
 [golang]
