@@ -34,3 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- keymap to open treesitter manager
 vim.keymap.set("n", "<leader>tm", ":TSManager<CR>", { desc = "Open tree-sitter manager" })
 
+-- keymap to open and close markdown preview
+vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Open markdown preview" })
+vim.keymap.set("n", "<leader>mc", ":MarkdownPreviewStop<CR>", { desc = "Close markdown preview" })
+vim.keymap.set("n", "<leader>mr", ":MarkdownPreviewRefresh<CR>", { desc = "Refresh markdown preview" })
