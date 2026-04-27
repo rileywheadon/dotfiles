@@ -88,7 +88,9 @@ return {
 					"groovy",
 					"lua",
 					"python",
-					"nix" 
+					"nix",
+					"yaml",
+					"helm"
 				}
 			})
 		end

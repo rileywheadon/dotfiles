@@ -25,3 +25,9 @@ vim.diagnostic.config({
 
 })
 
+-- treat tpl files like yaml
+vim.filetype.add({
+  extension = {
+    tpl = 'yaml',
+  },
+})
