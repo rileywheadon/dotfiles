@@ -24,3 +24,4 @@ vim.diagnostic.config({
   underline = true,
 
 })
+
