@@ -83,7 +83,13 @@ return {
 		dependencies = {},
 		config = function()
 			require("tree-sitter-manager").setup({
-				ensure_installed = { "go", "groovy", "lua", "python" }
+				ensure_installed = {
+					"go",
+					"groovy",
+					"lua",
+					"python",
+					"nix" 
+				}
 			})
 		end
 	},
