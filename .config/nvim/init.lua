@@ -19,3 +19,11 @@ if not vim.g.vscode then
 		loadfile(path)()
 	end
 end
+
+-- filetype mappings
+vim.filetype.add({
+  extension = {
+		tpl = 'yaml',
+    mdx = 'markdown',
+  },
+})
