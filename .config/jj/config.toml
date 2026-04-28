@@ -9,3 +9,7 @@ default-command = "log"
 
 [template-aliases]
 'format_short_change_id(id)' = 'id.shortest()'
+
+# use first_ancestors instead of ancestors to hide old merge commits 
+[revsets]
+log = 'present(@) | first_ancestors(immutable_heads().., 2) | trunk()' 
