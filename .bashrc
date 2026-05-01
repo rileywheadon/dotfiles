@@ -1,27 +1,33 @@
-# Vi mode
-set -o vi
-export EDITOR="nvim"
+# ~/.bashrc
 
-# Aliases
+# Add user binaries to path
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias hx='helix'
 alias kc='kubectl'
-alias nv='nvim'
-alias vim='nvim'
+PS1='[\u@\h \W]\$ '
 
-# Configure browser for WSL
-export BROWSER="explorer.exe"
-
-# Configure $PATH
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" # krew (kubectl package manager)
-export PATH="$PATH:/snap/bin"                     # snap (Ubuntu package manager)
-export PATH=${PATH}:`go env GOPATH`/bin           # Golang
-export PATH="$HOME/.local/bin:$PATH"              # local scripts
-
-# Start tmux automatically
-if [[ $- == *i* ]] && [[ -z "$TMUX" ]]; then
-	tmux attach -t home 
-fi
-
-# Starship (terminal prompt)
+# Run starship
 eval "$(starship init bash)"
+
+# Set the default editor and visual editor to vim
+export EDITOR=vim
+export VISUAL=vim
+
+# Set up autojump
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+
+# Set a path for screenshots
+HYPRSHOT_DIR='~/Screenshots'
+
+# Add linuxbrew to the path
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# opencode
+export PATH=/home/rileywheadon/.opencode/bin:$PATH
