@@ -11,7 +11,8 @@ alias ls='ls -a --color=auto'
 alias grep='grep --color=auto'
 alias hx='helix'
 alias kc='kubectl'
-PS1='[\u@\h \W]\$ '
+alias vim='nvim'
+alias nv='nvim'
 
 # Run starship
 eval "$(starship init bash)"

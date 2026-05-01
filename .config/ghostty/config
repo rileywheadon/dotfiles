@@ -1,0 +1,16 @@
+shell-integration = bash
+theme = Gruvbox Dark Hard
+scrollback-limit = 1000000
+
+# Remove pading
+window-save-state = always
+window-padding-x = 4
+window-padding-y = 0
+window-padding-balance = true
+
+# Disable ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+# NOTE: Terminal multiplexing is handled by tmux

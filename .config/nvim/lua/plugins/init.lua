@@ -105,7 +105,9 @@ return {
 	-- blink.cmp for completions
 	{
 		'saghen/blink.cmp',
-		dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+		dependencies = { 
+            -- 'L3MON4D3/LuaSnip', version = 'v2.*' 
+        },
 
 		-- use stable 1.* version
 		version = '1.*',  
@@ -121,7 +123,7 @@ return {
 			appearance = { nerd_font_variant = 'mono' },
 
 			-- use LuaSnip for snippets
-			snippets = { preset = 'luasnip' },
+			-- snippets = { preset = 'luasnip' },
 
 			-- set list of enabled providers
 			sources = { 
