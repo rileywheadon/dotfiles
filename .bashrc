@@ -7,6 +7,11 @@ export PATH=$PATH:$HOME/go/bin
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Start tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux -f ~/.tmux.conf
+fi
+
 alias ls='ls -a --color=auto'
 alias grep='grep --color=auto'
 alias hx='helix'

@@ -123,7 +123,7 @@ return {
 			appearance = { nerd_font_variant = 'mono' },
 
 			-- use LuaSnip for snippets
-			-- snippets = { preset = 'luasnip' },
+			snippets = { preset = 'luasnip' },
 
 			-- set list of enabled providers
 			sources = { 
