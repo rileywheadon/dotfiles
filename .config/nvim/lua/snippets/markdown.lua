@@ -60,51 +60,51 @@ end
 -- more concise functions for the three types of snippets: math snippets (_m),
 -- regular snippets (_r, expanded with tab), and automatic snippets (_a). 
 local function md_snippet(trig, type, str, ins, cond)
-	local nodes = {}
-	for idx, val in ipairs(ins) do
-		nodes[idx] = i(val, "")
-	end
+  local nodes = {}
+  for idx, val in ipairs(ins) do
+    nodes[idx] = i(val, "")
+  end
 
-	opts = { trig = trig, snippetType = type, wordTrig = false }
-	return s(opts, fmta(str, nodes), cond)
+  opts = { trig = trig, snippetType = type, wordTrig = false }
+  return s(opts, fmta(str, nodes), cond)
 end
 
 local function _m(trig, str, ins)
-	return md_snippet(trig, "autosnippet", str, ins, { condition = in_math })
+  return md_snippet(trig, "autosnippet", str, ins, { condition = in_math })
 end
 
 local function _a(trig, str, ins)
-	return md_snippet(trig, "autosnippet", str, ins, {})
+  return md_snippet(trig, "autosnippet", str, ins, {})
 end
 
 local function _r(trig, str, ins)
-	return md_snippet(trig, "snippet", str, ins, {})
+  return md_snippet(trig, "snippet", str, ins, {})
 end
 
 -- Snippet definitions begin here
 ls.add_snippets("markdown", {
 
   -- General snippets
-	_r("jira", "[<>](https://jira.tools.sap/browse/<>)", {1, 2}),
-	_r("link", "[<>](<>)", {1, 2}),
-	_r("table", "| <> | <> |\n|--|--|\n| <> | <> |", {1, 2, 3, 4}),
-	_r("icd", "`<>`", {1}),
+  _r("jira", "[<>](https://jira.tools.sap/browse/<>)", {1, 2}),
+  _r("link", "[<>](<>)", {1, 2}),
+  _r("table", "| <> | <> |\n|--|--|\n| <> | <> |", {1, 2, 3, 4}),
+  _r("icd", "`<>`", {1}),
   _r("dcd", "```\n<>\n```", {1}),
 
   -- Entering math mode
-	_a("mk", "$<>$ ", {1}),
-	_a("dm", "$$\n<>\n$$\n", {1}),
+  _a("mk", "$<>$ ", {1}),
+  _a("dm", "$$\n<>\n$$\n", {1}),
 
   -- Latex environments
   _m("cases", "\\begin{cases}\n<>\n\\end{cases}", {1}),
   _m("align", "\\begin{aligned}\n<>\n\\end{aligned}", {1}),
   _m("nl", "\\\\[5pt]\n<>", {0}),
 
-	-- Trigonometric Functions
-	_m("sin", "\\sin ", {}),
-	_m("cos", "\\cos ", {}),
-	_m("tan", "\\tan ", {}),
-	_m("asin", "\\arcsin ", {}),
+  -- Trigonometric Functions
+  _m("sin", "\\sin ", {}),
+  _m("cos", "\\cos ", {}),
+  _m("tan", "\\tan ", {}),
+  _m("asin", "\\arcsin ", {}),
   _m("acos", "\\arccos ", {}),
   _m("atan", "\\arctan ", {}),
   _m("hsin", "\\sinh ", {}),
