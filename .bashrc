@@ -23,6 +23,7 @@ alias nv='nvim'
 eval "$(starship init bash)"
 
 # Set the default editor and visual editor to vim
+set -o vi
 export EDITOR=vim
 export VISUAL=vim
 

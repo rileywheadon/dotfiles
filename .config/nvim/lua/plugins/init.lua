@@ -90,7 +90,9 @@ return {
 					"python",
 					"nix",
 					"yaml",
-					"helm"
+					"helm",
+					"markdown",
+					"latex"
 				}
 			})
 		end
@@ -100,6 +102,11 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*", 
+		config = function()
+			require("luasnip").config.set_config({
+				enable_autosnippets = true,
+			})
+		end
 	},
 
 	-- blink.cmp for completions
@@ -148,5 +155,5 @@ return {
 				debounce_ms = 300,
 			})
 		end,
-	}
+	},
 }
