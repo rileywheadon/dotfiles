@@ -50,6 +50,10 @@ local function in_math()
       return true
     end
 
+    if t == "text_mode" then
+      return false
+    end
+
     node = node:parent()
   end
 
@@ -59,18 +63,19 @@ end
 -- This is a general helper function for creating snippets. Below, I define
 -- more concise functions for the three types of snippets: math snippets (_m),
 -- regular snippets (_r, expanded with tab), and automatic snippets (_a). 
-local function md_snippet(trig, type, str, ins, cond)
+local function md_snippet(trig, type, str, ins, cond, prio)
+	prio = prio or 0
   local nodes = {}
   for idx, val in ipairs(ins) do
     nodes[idx] = i(val, "")
   end
 
-  opts = { trig = trig, snippetType = type, wordTrig = false }
+  opts = { trig = trig, snippetType = type, wordTrig = false, priority = prio }
   return s(opts, fmta(str, nodes), cond)
 end
 
-local function _m(trig, str, ins)
-  return md_snippet(trig, "autosnippet", str, ins, { condition = in_math })
+local function _m(trig, str, ins, prio)
+  return md_snippet(trig, "autosnippet", str, ins, { condition = in_math }, prio)
 end
 
 local function _a(trig, str, ins)
@@ -92,7 +97,7 @@ ls.add_snippets("markdown", {
   _r("dcd", "```\n<>\n```", {1}),
 
   -- Entering math mode
-  _a("mk", "$<>$ ", {1}),
+  _a("mk", "$<>$", {1}),
   _a("dm", "$$\n<>\n$$\n", {1}),
 
   -- Latex environments
@@ -151,12 +156,13 @@ ls.add_snippets("markdown", {
   _m("_", "_{<>}", {1}),
   _m("(", "(<>)", {1}),
   _m("[", "[<>]", {1}),
+  _m("abs", "|<>|", {1}),
   _m("set", "\\{<>\\}", {1}),
   _m("ang", "\\langle <> \\rangle ", {1}),
-  _m("lr(", "\\left(<>\\right) ", {1}),
-  _m("lr[", "\\left[<>\\right] ", {1}),
-  _m("lr|", "\\left|<>\\right| ", {1}),
-  _m("lr{", "\\left\\{<>\\right\\} ", {1}),
+  _m("lr(", "\\left( <> \\right) ", {1}, 1),
+  _m("lr[", "\\left[ <> \\right] ", {1}, 1),
+  _m("lr|", "\\left| <> \\right| ", {1}, 1),
+  _m("lr{", "\\left\\{ <> \\right\\} ", {1}, 1),
   _m("tt", "\\text{<>} ", {1}),
 
   -- Arithmetic operations
@@ -182,6 +188,8 @@ ls.add_snippets("markdown", {
   _m("par", "\\frac{\\partial <>}{\\partial <>} ", {1, 2}),
   _m("int", "\\int_{<>}^{<>} <>\\,d", {1, 2, 3}),
   _m("@", "\\Bigg_{<>}^{<>}", {1, 2}),
+  _m("max", "\\max ", {}),
+  _m("min", "\\min ", {}),
 
   -- Linear algebra
   _m("odot", "\\dot{<>}", {1}),
@@ -191,9 +199,13 @@ ls.add_snippets("markdown", {
   _m("hat", "\\hat{<>}", {1}),
   _m("bar", "\\overline{<>}", {1}),
   _m("tld", "\\tilde{<>}", {1}),
-  _m("det", "\\det", {}),
-  _m("tr", "\\text{tr}\\,", {}),
+  _m("det", "\\det ", {}),
+  _m("trc", "\\text{tr}\\,", {}),
+  _m("rk", "\\text{rank}(<>)", {1}),
+  _m("aug", "[<>\\,|\\,<>]", {1, 2}),
+  _m("nrm", "\\lVert <> \\rVert ", {1}),
   _m("mtx", "\\begin{pmatrix}\n<>\n\\end{pmatrix}", {1}),
+  _m("PP", "\\mathbb{P}", {}),
 
   -- Logic and set theory
   _m("=>", "\\Rightarrow ", {}),

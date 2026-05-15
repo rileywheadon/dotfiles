@@ -7,6 +7,7 @@ vim.opt.spell = false
 vim.opt.spelllang = 'en_ca'
 
 -- set default tab size to 4
+vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4 
