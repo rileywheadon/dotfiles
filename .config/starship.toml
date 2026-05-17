@@ -3,7 +3,7 @@ command_timeout=3600000
 
 # Use custom format
 format = '''
-$battery${custom.k8s}$nix_shell$directory${custom.jj}$golang
+$battery${custom.k8s}$nix_shell$directory${custom.jj}$golang$python
 $character
 '''
 
