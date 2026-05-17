@@ -39,6 +39,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # opencode
 export PATH=/home/rileywheadon/.opencode/bin:$PATH
 
+# Set up SSH agent
+systemctl --user enable --now ssh-agent.service
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # install Conda for CPSC330 (can remove after 2026-06-30)
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
