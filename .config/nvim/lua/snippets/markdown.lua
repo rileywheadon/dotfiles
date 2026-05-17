@@ -78,12 +78,12 @@ local function _m(trig, str, ins, prio)
   return md_snippet(trig, "autosnippet", str, ins, { condition = in_math }, prio)
 end
 
-local function _a(trig, str, ins)
-  return md_snippet(trig, "autosnippet", str, ins, {})
+local function _a(trig, str, ins, prio)
+  return md_snippet(trig, "autosnippet", str, ins, {}, prio)
 end
 
-local function _r(trig, str, ins)
-  return md_snippet(trig, "snippet", str, ins, {})
+local function _r(trig, str, ins, prio)
+  return md_snippet(trig, "snippet", str, ins, {}, prio)
 end
 
 -- Snippet definitions begin here
