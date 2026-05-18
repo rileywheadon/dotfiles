@@ -219,8 +219,8 @@ ls.add_snippets("markdown", {
   _m("inn", "\\in ", {}),
   _m("nin", "\\notin ", {}),
   _m("sb", "\\subset ", {}),
-  _m("nsb", "\\not\\subset ", {}),
-  _m("esb", "\\subseteq ", {}),
+  _m("nsb", "\\not\\subset ", {}, 1),
+  _m("esb", "\\subseteq ", {}, 1),
   _m("stu", "\\cup ", {}),
   _m("sti", "\\cap ", {}),
   _m("std", "\\setminus ", {}),
@@ -229,6 +229,7 @@ ls.add_snippets("markdown", {
   _m("bsi", "\\bigcap ", {}),
   _m("qed", "\\blacksquare ", {}),
   _m("#", "\\# ", {}),
+  _m("prp", "\\perp ", {}),
 
   -- Probability
   _m("EE", "\\mathbb{E}", {}),
