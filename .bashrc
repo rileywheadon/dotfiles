@@ -17,7 +17,8 @@ alias grep='grep --color=auto'
 alias hx='helix'
 alias kc='kubectl'
 alias vim='nvim'
-alias nv='nvim'
+alias c='clear'
+alias e='exit'
 
 # Run starship
 eval "$(starship init bash)"
