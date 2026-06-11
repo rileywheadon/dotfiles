@@ -31,3 +31,6 @@ export VISUAL=vim
 # Add linuxbrew to the path
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Add krew (kubectlpackage manager) to path
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
