@@ -142,15 +142,15 @@ return {
 
 	-- markdown previewer
 	{
-		"selimacerbas/markdown-preview.nvim",
-		dependencies = { "selimacerbas/live-server.nvim" },
-		config = function()
-			require("markdown_preview").setup({
-				instance_mode = "takeover",
-				port = 0,
-				open_browser = true,
-				debounce_ms = 300,
-			})
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_theme = "dark"
+			vim.g.mkdp_auto_close = 0
+			vim.g.mkdp_combine_preview = 1
 		end,
-	},
+		ft = { "markdown" },
+	}
 }
