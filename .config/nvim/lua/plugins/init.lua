@@ -152,5 +152,23 @@ return {
 			vim.g.mkdp_combine_preview = 1
 		end,
 		ft = { "markdown" },
+	},
+
+	-- conform for autoformatting
+	{
+		"stevearc/conform.nvim",
+		opts = {
+
+			-- Use prettier to format markdown
+			formatters_by_ft = {
+				markdown = { "prettier" },
+			},
+
+			-- Set up autocmd to format on save
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			}
+		},
 	}
 }

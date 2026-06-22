@@ -63,27 +63,28 @@ end
 -- This is a general helper function for creating snippets. Below, I define
 -- more concise functions for the three types of snippets: math snippets (_m),
 -- regular snippets (_r, expanded with tab), and automatic snippets (_a). 
-local function md_snippet(trig, type, str, ins, cond, prio)
+local function md_snippet(trig, type, str, ins, cond, prio, wt)
 	prio = prio or 0
   local nodes = {}
   for idx, val in ipairs(ins) do
     nodes[idx] = i(val, "")
   end
 
-  opts = { trig = trig, snippetType = type, wordTrig = false, priority = prio }
+  opts = { trig = trig, snippetType = type, wordTrig = wt, priority = prio }
   return s(opts, fmta(str, nodes), cond)
 end
 
 local function _m(trig, str, ins, prio)
-  return md_snippet(trig, "autosnippet", str, ins, { condition = in_math }, prio)
+	cond = { condition = in_math }
+  return md_snippet(trig, "autosnippet", str, ins, cond, prio, false)
 end
 
 local function _a(trig, str, ins, prio)
-  return md_snippet(trig, "autosnippet", str, ins, {}, prio)
+  return md_snippet(trig, "autosnippet", str, ins, {}, prio, true)
 end
 
 local function _r(trig, str, ins, prio)
-  return md_snippet(trig, "snippet", str, ins, {}, prio)
+  return md_snippet(trig, "snippet", str, ins, {}, prio, true)
 end
 
 -- Snippet definitions begin here
