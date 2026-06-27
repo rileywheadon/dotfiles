@@ -14,7 +14,6 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope find diagnostics" })
 
 -- keymaps for oil.nvim
-require("oil").setup()
 vim.keymap.set("n", "<leader>fo", "<CMD>Oil<Cr>", { desc = "Edit directory with oil.nvim" })
 
 -- keymaps for LSP integration
