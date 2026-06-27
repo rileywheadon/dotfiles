@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local opts = { buffer = args.buf }
 
-	-- default:   ("n", "gx"): opens documentation for package
+    -- default:   ("n", "gx"): opens documentation for package
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)

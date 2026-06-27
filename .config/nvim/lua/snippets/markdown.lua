@@ -64,7 +64,7 @@ end
 -- more concise functions for the three types of snippets: math snippets (_m),
 -- regular snippets (_r, expanded with tab), and automatic snippets (_a). 
 local function md_snippet(trig, type, str, ins, cond, prio, wt)
-	prio = prio or 0
+    prio = prio or 0
   local nodes = {}
   for idx, val in ipairs(ins) do
     nodes[idx] = i(val, "")
@@ -75,7 +75,7 @@ local function md_snippet(trig, type, str, ins, cond, prio, wt)
 end
 
 local function _m(trig, str, ins, prio)
-	cond = { condition = in_math }
+    cond = { condition = in_math }
   return md_snippet(trig, "autosnippet", str, ins, cond, prio, false)
 end
 
