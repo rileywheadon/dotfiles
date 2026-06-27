@@ -7,6 +7,9 @@ require("core.opts")
 -- keymaps for plugins/LSP
 require("core.keymaps")
 
+-- auto commands
+require("core.autocmds")
+
 -- enable LSPs (configured in the lsps/ directory)
 vim.lsp.enable({
     "gopls",
@@ -23,16 +26,7 @@ end
 -- filetype mappings
 vim.filetype.add({
   extension = {
-        tpl = 'yaml',
+    tpl = 'yaml',
     mdx = 'markdown',
   },
 })
-
--- automatic formatting for Golang files
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-    vim.lsp.buf.format({async = false})
-  end
-})
-
