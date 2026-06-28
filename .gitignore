@@ -1,2 +1,3 @@
 .vim/plugged/**
 .config/jj/repos/**
+.pi/agent/**
