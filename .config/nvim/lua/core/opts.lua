@@ -1,5 +1,5 @@
 -- enable line numbers
-vim.opt.number = true 
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- disable spellcheck by default
@@ -10,7 +10,7 @@ vim.opt.spelllang = 'en_ca'
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4 
+vim.opt.softtabstop = 4
 
 -- make LSP diagnostics look more pleasant
 vim.diagnostic.config({
@@ -26,9 +26,15 @@ vim.diagnostic.config({
 
 })
 
--- treat tpl files like yaml
+-- filetype detection for gotmpl files
 vim.filetype.add({
   extension = {
-    tpl = 'yaml',
+    tpl = "gotmpl",
+    gotmpl = "gotmpl",
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "gotmpl",
+    [".*/templates/.*%.ya?ml"] = "gotmpl",
+    ["helmfile.*%.ya?ml"] = "gotmpl",
   },
 })

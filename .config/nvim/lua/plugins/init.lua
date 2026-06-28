@@ -88,7 +88,7 @@ return {
                     "python",
                     "nix",
                     "yaml",
-                    "helm",
+                    "gotmpl",
                     "markdown",
                     "latex"
                 }
@@ -99,7 +99,7 @@ return {
     -- LuaSnip for snippets
     {
         "L3MON4D3/LuaSnip",
-        version = "v2.*", 
+        version = "v2.*",
         config = function()
             require("luasnip").config.set_config({
                 enable_autosnippets = true,
@@ -110,8 +110,8 @@ return {
     -- blink.cmp for completions
     {
         'saghen/blink.cmp',
-        dependencies = { 
-            'L3MON4D3/LuaSnip', version = 'v2.*' 
+        dependencies = {
+            'L3MON4D3/LuaSnip', version = 'v2.*'
         },
 
         -- use stable 1.* version
