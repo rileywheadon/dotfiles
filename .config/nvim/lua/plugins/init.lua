@@ -90,7 +90,9 @@ return {
                     "yaml",
                     "gotmpl",
                     "markdown",
-                    "latex"
+                    "latex",
+                    "ini",
+                    "bash"
                 }
             })
         end
